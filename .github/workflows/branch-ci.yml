@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Display current branch
-        run: echo "Workflow running on branch: ${{ github.ref_name }}"
+        run: echo "Workflow running on branch ${{ github.ref_name }}"
 
       - name: Run basic validation
         run: echo "Code validation completed"
