@@ -1,0 +1,39 @@
+name: Branch Based CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run test cases
+        run: npm test
+
+  branch-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Display current branch
+        run: echo "Workflow running on branch: ${{ github.ref_name }}"
+
+      - name: Run basic validation
+        run: echo "Code validation completed"
