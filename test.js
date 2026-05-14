@@ -1,5 +1,5 @@
 const add = require("./index");
-const multiply = require("./app");
+const multiply = require("./index");
 
 if (add(2, 3) === 5) {
   console.log("Test passed successfully");
